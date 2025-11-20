@@ -559,23 +559,54 @@ function groupBookingsByStatus() {
 // RESTRICTION use Only for, while, and standard logic.
 function findMostExpensiveBooking() {
     
-
+    let maxPrice = 0;
+    let i = 0;
+    while (i < bookings.length)
+    {
+        if (bookings[i].totalPrice > maxPrice)
+            maxPrice = bookings[i].totalPrice;
+        i++;
+    }
+    
+    return maxPrice;
 }
+// const l = findMostExpensiveBooking();
+// console.log(l);
 
 // CHALLENGE 9: Create a simple summary of all bookings
 // NO RESTRICTION You are encouraged to use map, filter, reduce, and Object.keys/Object.values/Object.entries where appropriate.
 function getBookingSummary() {
     // We want to make each booking simpler - just show:
     // id, destination, number of passengers, and total price
-    
+
+    let AllData = [];
+    let i = 0;
+    while (i < bookings.length)
+    {
+        let obj = {
+            id : bookings[i].id,
+            destination : bookings[i].destination,
+            number_passanges : bookings[i].passengers.length,
+            totalprice : bookings[i].totalPrice
+        }
+        AllData.push(obj);
+        i++;
+    }
+    return AllData;
 }
+// getBookingSummary();
 
 // CHALLENGE 10: Update a booking's status
 // RESTRICTION use Only for, while, and standard logic.
 function updateBookingStatus(bookingId, newStatus) {
     
-    
+    // let ele = bookings[bookingId].status;
+    // ele.textContent = newStatus;
+    // console.log(ele);
 }
+
+updateBookingStatus(0, "newStatus");
+
 
 
 // CHALLENGE 11: Calculate how much money each destination has made
